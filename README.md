@@ -150,28 +150,32 @@ Le bot sera en ligne et prêt à utiliser les commandes avec le préfixe `+`.
 ```
 bot-discord-francais
 │
-├ commands
-│ ├ help.s
-│ ├ ping.js
-│ ├ warn.js
-│ └ etc...
+├ data
+│ ├ warnings.json
 │
-├ events
-│ ├ antiraid.js
-│ ├ captcha.js
-│ ├ guildMemberAdd.js
-│ ├ interactionButton.js
-│ ├ interactionCreate.js
-│ ├ messageCreate.js
-│ └ ready.js
-│
-├ structure
-│ ├ commandHandler.js
-│ ├ eventHandler.js
-│ └ slashCommandHandler.js
-│
-├ utils
-│ └ logger.js
+├ src
+│ ├ commands
+│ │ ├ help.s
+│ │ ├ ping.js
+│ │ ├ warn.js
+│ │ └ etc...
+│ │
+│ ├ events
+│ │ ├ antiraid.js
+│ │ ├ captcha.js
+│ │ ├ guildMemberAdd.js
+│ │ ├ interactionButton.js
+│ │ ├ interactionCreate.js
+│ │ ├ messageCreate.js
+│ │ └ ready.js
+│ │
+│ ├ structure
+│ │ ├ commandHandler.js
+│ │ ├ eventHandler.js
+│ │ └ slashCommandHandler.js
+│ │
+│ ├ utils
+│ │ └ logger.js
 │
 ├ config.js
 ├ index.js
