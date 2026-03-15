@@ -10,7 +10,7 @@ const path = require("path");
 const config = require("./config"); // token, guildId, soutienRoleId
 const { EmbedBuilder } = require('discord.js');
 
-const STATUT = "/bloxet";
+const STATUT = "ton-status-perso";
 const LOG_FILE = path.join(__dirname, "role_logs.txt");
 
 const client = new Client({
@@ -43,8 +43,8 @@ client.antiraidEnabled = false;
     client.on(event.name, (...args) => event.execute(...args, client));
 });
 
-// ===== STATUT /bloxet =====
-function hasBloxet(member) {
+// ===== STATUT =====
+function hasStatus(member) {
   if (!member.presence) return false;
 
   for (const activity of member.presence.activities) {
@@ -65,7 +65,7 @@ function logAction(message) {
 
 async function checkMember(member) {
   try {
-    const hasStatus = hasBloxet(member);
+    const hasStatus = hasStatus(member);
     const hasRole = member.roles.cache.has(config.soutienRoleId);
 
     if (hasStatus && !hasRole) {
@@ -134,32 +134,34 @@ client.on("messageCreate", async message => {
 // Message de bienvenue
 client.on('guildMemberAdd', async (member) => {
     // Remplace 'ID_DU_SALON' par l'ID réel de ton salon
-    const welcomeChannel = member.guild.channels.cache.get('1474694040334106634');
+    const welcomeChannel = member.guild.channels.cache.get('ID_DU_SALON');
     if (!welcomeChannel) return;
 
     const memberCount = member.guild.memberCount;
 
     const welcomeEmbed = new EmbedBuilder()
         .setColor('#00ff00')
-        .setTitle('<a:salut:1467534006659584222> Une nouvelle pousse rejoint le jardin 🌱')
+        .setTitle('👋 Une nouvelle pousse rejoint le jardin 🌱')
         .setDescription(`Bienvenue ${member} ! 🥳  
-Tu es maintenant l’un des **${memberCount} membres** de Bloxet !  
+Tu es maintenant l’un des **${memberCount} membres** de [nom-du-serveur] !  
 > 🔧 Pense à choisir tes rôles dans <id:customize>  
-> 🖼️ Mets \`/bloxet\` dans ton statut pour avoir perm image`)
+> 🖼️ Mets \`ton-status\` dans ton statut pour avoir perm image`)
         .setThumbnail(member.user.displayAvatarURL({ dynamic: true }))
         .setFooter({ text: 'Bienvenue dans la famille !', iconURL: member.guild.iconURL({ dynamic: true }) });
 
     welcomeChannel.send({ embeds: [welcomeEmbed] });
 });
 
+// Petit message de bienvenue
 client.on('guildMemberAdd', async (member) => {
-    const logChannel = member.guild.channels.cache.get('1466007980569919636');
+    const logChannel = member.guild.channels.cache.get('ID_DU_SALON');
     if (!logChannel) return;
     logChannel.send(`📥 ${member} **a rejoint le serveur ! Souhaitez lui la bienvenue <:cute:1467534419043684524>**`);
 });
 
+// Message d'au revoir
 client.on('guildMemberRemove', async (member) => {
-    const logChannel = member.guild.channels.cache.get('1474830889308651620');
+    const logChannel = member.guild.channels.cache.get('ID_DU_SALON');
     if (!logChannel) return;
     const memberCount = member.guild.memberCount;
 
@@ -178,7 +180,7 @@ client.on('guildMemberAdd', async (member) => {
       const message = `Salut ${member.user.username} ! Je te passe le lien du serveur au cas où tu le perdrais :
       https://discord.gg/TjuPQWgGPe
       
-      N'hésite pas à mettre \`/bloxet\` dans ton statut pour nous soutenir et avoir la perm image !
+      N'hésite pas à mettre \`ton-status\` dans ton statut pour nous soutenir et avoir la perm image !
       Si tu as des questions, le staff est là pour t'aider. Amuse-toi bien !`;
       await member.send(message);
     } catch (err) {
