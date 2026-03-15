@@ -151,14 +151,27 @@ Le bot sera en ligne et prêt à utiliser les commandes avec le préfixe `+`.
 bot-discord-francais
 │
 ├ commands
-│ ├ moderation
-│ ├ fun
-│ ├ jeux
-│ └ informations
+│ ├ help.s
+│ ├ ping.js
+│ ├ warn.js
+│ └ etc...
 │
 ├ events
-│ ├ ready.js
-│ └ messageCreate.js
+│ ├ antiraid.js
+│ ├ captcha.js
+│ ├ guildMemberAdd.js
+│ ├ interactionButton.js
+│ ├ interactionCreate.js
+│ ├ messageCreate.js
+│ └ ready.js
+│
+├ structure
+│ ├ commandHandler.js
+│ ├ eventHandler.js
+│ └ slashCommandHandler.js
+│
+├ utils
+│ └ logger.js
 │
 ├ config.js
 ├ index.js
