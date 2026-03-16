@@ -86,9 +86,11 @@ Le bot utilise **`config.js`** pour les paramètres :
 
 ```js
 module.exports = {
-    token: "VOTRE_TOKEN_BOT",
-    prefix: "+"
-}
+  token: 'ton-token-ici',
+  prefix: '+',
+  embedColor: '#49ff02',
+  ownerId: 'ton-id-ici'
+};
 ```
 
 Remplacez `VOTRE_TOKEN_BOT` par le token de votre bot.
