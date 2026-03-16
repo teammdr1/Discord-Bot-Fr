@@ -8,7 +8,7 @@ module.exports = {
         if (message.author.bot) return;
         if (!message.member) return;
 
-        const limit = 5;       // 10 messages max
+        const limit = 5;       // 5 messages max
         const interval = 2000;  // en 2 secondes (2000 ms)
 
         let userData = usersMap.get(message.author.id);
@@ -29,7 +29,7 @@ module.exports = {
                         await message.member.timeout(60000, "Spam");
                         message.channel.send(`${message.author} a été mute pour spam.`);
                     } else {
-                        message.channel.send(`⚠️ Impossible de mute ${message.author}, permissions manquantes.`);
+                        message.channel.send(`**⚠️ Impossible de mute ${message.author}, permissions manquantes.**`);
                     }
                 } catch (err) {
                     console.log(`Erreur anti-raid: ${err.message}`);
