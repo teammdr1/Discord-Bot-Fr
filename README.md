@@ -93,7 +93,7 @@ module.exports = {
 };
 ```
 
-Remplacez `VOTRE_TOKEN_BOT` par le token de votre bot.
+Remplacez `ton-token-ici` par le token de votre bot.
 
 ---
 
