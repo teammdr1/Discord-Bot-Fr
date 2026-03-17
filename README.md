@@ -1,4 +1,4 @@
-# ![Discord](https://img.shields.io/badge/Discord-Bot-7289DA?logo=discord\&logoColor=white) bot-discord-français
+# ![Discord](https://img.shields.io/badge/Discord-Bot-7289DA?logo=discord\&logoColor=white) Bot Discord français multifonctions
 
 Bot Discord **multifonctions en français** avec commandes de **modération, informations, mini-jeux, gestion et fun**.
 Facile à configurer et à déployer sur GitHub, Railway, Replit, ou VPS.
